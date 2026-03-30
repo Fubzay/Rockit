@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rockit Trucking Inc – Elizabethtown, KY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #1a0033;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ===== LOGO-DERIVED COLOR PALETTE ===== */
+    :root {
+      --purple:    #8B00FF;
+      --purple-bg: #6A00CC;
+      --purple-dark: #2D0066;
+      --yellow:    #FFE500;
+      --lime:      #39FF14;
+      --pink:      #FF1493;
+      --orange:    #FF6600;
+      --red:       #FF2200;
+      --white:     #ffffff;
+      --light:     #f5eeff;
+    }
+
+    /* ===== LOGO STRIPE DIVIDER ===== */
+    .stripe-bar {
+      height: 10px;
+      background: linear-gradient(90deg,
+        var(--lime) 0%,
+        var(--lime) 12%,
+        var(--red) 12%,
+        var(--red) 22%,
+        var(--orange) 22%,
+        var(--orange) 32%,
+        var(--pink) 32%,
+        var(--pink) 42%,
+        var(--yellow) 42%,
+        var(--yellow) 52%,
+        var(--pink) 52%,
+        var(--pink) 62%,
+        var(--orange) 62%,
+        var(--orange) 72%,
+        var(--red) 72%,
+        var(--red) 82%,
+        var(--lime) 82%,
+        var(--lime) 100%
+      );
+    }
+    .stripe-bar-thin {
+      height: 5px;
+      background: linear-gradient(90deg,
+        var(--lime) 0%, var(--lime) 14%,
+        var(--red) 14%, var(--red) 28%,
+        var(--orange) 28%, var(--orange) 42%,
+        var(--pink) 42%, var(--pink) 56%,
+        var(--orange) 56%, var(--orange) 70%,
+        var(--red) 70%, var(--red) 84%,
+        var(--lime) 84%, var(--lime) 100%
+      );
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--purple-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 70px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      border-bottom: 3px solid var(--yellow);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--yellow);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .nav-logo-text span { color: var(--lime); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.8);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-cta {
+      background: var(--yellow) !important;
+      color: var(--purple-dark) !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--purple);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(139,0,255,0.8) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(57,255,20,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(45,0,102,0.6) 0%, transparent 70%);
+      z-index: 0;
+    }
+    /* Retro horizontal stripes overlay */
+    .hero-stripes {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent 0px,
+        transparent 18px,
+        rgba(255,229,0,0.03) 18px,
+        rgba(255,229,0,0.03) 20px
+      );
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      padding: 2rem 1.5rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--purple-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-logo-wrap {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 1.5rem;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 0 4px var(--yellow), 0 0 0 8px var(--lime), 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .hero-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-logo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 24px;
+      background: var(--purple-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      border: 3px dashed var(--yellow);
+      gap: 0.5rem;
+    }
+    .hero-logo-placeholder span { font-size: 3rem; }
+    .hero-logo-placeholder small {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .hero h1 .rockit { color: var(--yellow); text-shadow: 0 0 30px rgba(255,229,0,0.6); }
+    .hero h1 .trucking { color: var(--white); }
+    .hero-location {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--lime);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 15px rgba(57,255,20,0.4);
+    }
+    .hero-tagline {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .hero-verse {
+      background: rgba(45,0,102,0.6);
+      border: 1px solid rgba(255,229,0,0.3);
+      border-left: 4px solid var(--yellow);
+      backdrop-filter: blur(8px);
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      margin: 0 auto 2rem;
+      max-width: 560px;
+    }
+    .hero-verse p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--white);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .hero-verse cite {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--yellow);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--purple-dark);
+      box-shadow: 0 6px 30px rgba(255,229,0,0.5);
+    }
+    .btn-primary:hover { box-shadow: 0 10px 40px rgba(255,229,0,0.7); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* ===== TICKER ===== */
+    .ticker-wrap {
+      background: var(--purple-dark);
+      border-top: 3px solid var(--lime);
+      border-bottom: 3px solid var(--lime);
+      overflow: hidden;
+      padding: 0.65rem 0;
+    }
+    .ticker-content {
+      display: flex;
+      gap: 4rem;
+      white-space: nowrap;
+      animation: ticker 30s linear infinite;
+    }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .ticker-item {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .ticker-item::before { content: "✦ "; color: var(--lime); }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: #555;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--light); }
+    .about-label { background: rgba(139,0,255,0.12); color: var(--purple); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-title { color: var(--purple-dark); }
+    .about-title span { color: var(--purple); }
+    .about-text { font-size: 1.05rem; color: #444; line-height: 1.8; margin-bottom: 1.2rem; }
+    .about-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--purple);
+    }
+    .stat-label { font-size: 0.8rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .about-card {
+      background: var(--purple);
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--pink), var(--orange));
+    }
+    .about-card-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .about-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .about-card-verse {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      border-left: 3px solid var(--lime);
+      padding-left: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .about-card-cite {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--lime);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .about-deco {
+      position: absolute;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(57,255,20,0.08);
+      bottom: -50px; right: -50px;
+    }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--white); }
+    .services-label { background: rgba(255,229,0,0.15); color: #7a6800; }
+    .services-title { color: var(--purple-dark); }
+    .services-title span { color: var(--purple); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid #eee;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .service-card-1::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+    .service-card-2::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+    .service-card-3::before { background: linear-gradient(90deg, var(--lime), var(--yellow)); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(139,0,255,0.12); border-color: var(--purple); }
+    .service-icon-wrap {
+      width: 70px; height: 70px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.25rem;
+    }
+    .service-card-1 .service-icon-wrap { background: linear-gradient(135deg, var(--yellow), var(--orange)); }
+    .service-card-2 .service-icon-wrap { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+    .service-card-3 .service-icon-wrap { background: linear-gradient(135deg, var(--lime), #00cc00); }
+    .service-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--purple-dark);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .service-desc { font-size: 0.95rem; color: #666; line-height: 1.65; }
+
+    /* ===== FLEET GALLERY ===== */
+    .fleet { background: var(--purple-dark); padding: 5rem 1.5rem; }
+    .fleet-label { background: rgba(255,229,0,0.15); color: var(--yellow); }
+    .fleet-title { color: var(--yellow); }
+    .fleet-title span { color: var(--lime); }
+    .fleet-subtitle { color: rgba(255,255,255,0.65); }
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .fleet-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #1a0044;
+      border: 2px solid rgba(255,229,0,0.2);
+      transition: border-color 0.3s;
+    }
+    .fleet-item:hover { border-color: var(--yellow); }
+    .fleet-item.large { grid-column: span 2; aspect-ratio: 16/7; }
+    .fleet-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .fleet-item:hover img { transform: scale(1.04); }
+    .fleet-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45,0,102,0.75) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .fleet-item:hover .fleet-item-overlay { opacity: 1; }
+    .fleet-item-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .fleet-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: rgba(45,0,102,0.5);
+      border: 2px dashed rgba(255,229,0,0.2);
+      border-radius: 18px;
+      gap: 0.75rem;
+    }
+    .fleet-placeholder-icon { font-size: 3rem; opacity: 0.4; }
+    .fleet-placeholder-text { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; color: rgba(255,229,0,0.4); }
+
+    /* ===== FAITH SECTION ===== */
+    .faith { background: var(--purple); position: relative; overflow: hidden; }
+    .faith::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(255,229,0,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(57,255,20,0.08) 0%, transparent 55%);
+    }
+    .faith .container { position: relative; z-index: 1; }
+    .faith-label { background: rgba(255,229,0,0.15); color: var(--yellow); }
+    .faith-title { color: var(--yellow); }
+    .faith-title span { color: var(--lime); }
+    .faith-subtitle { color: rgba(255,255,255,0.7); }
+    .faith-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .faith-card {
+      background: rgba(45,0,102,0.5);
+      border: 1px solid rgba(255,229,0,0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .faith-card:hover { background: rgba(45,0,102,0.7); border-color: var(--yellow); }
+    .faith-card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .faith-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .faith-card-text { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.65; }
+    .faith-verse-block {
+      margin-top: 3.5rem;
+      text-align: center;
+      background: rgba(45,0,102,0.5);
+      border: 1px solid rgba(255,229,0,0.25);
+      border-top: 4px solid var(--lime);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .faith-verse-block p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--white);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+    .faith-verse-block cite {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--lime);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ===== VERSE BANNER ===== */
+    .verse-banner {
+      background: var(--yellow);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .verse-banner::before, .verse-banner::after {
+      content: '✦';
+      position: absolute;
+      font-size: 8rem;
+      color: rgba(139,0,255,0.08);
+      top: 50%; transform: translateY(-50%);
+    }
+    .verse-banner::before { left: 3rem; }
+    .verse-banner::after { right: 3rem; }
+    .verse-banner p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--purple-dark);
+      line-height: 1.6;
+      max-width: 750px;
+      margin: 0 auto 1rem;
+    }
+    .verse-banner cite {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--purple);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ===== REVIEWS ===== */
+    .testimonials { background: var(--light); }
+    .testimonials-label { background: rgba(139,0,255,0.12); color: var(--purple); }
+    .testimonials-title { color: var(--purple-dark); }
+    .testimonials-title span { color: var(--purple); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 5px 25px rgba(139,0,255,0.1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(139,0,255,0.08);
+    }
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px; right: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: rgba(139,0,255,0.05);
+      line-height: 1;
+    }
+    .review-card-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--pink), var(--yellow));
+    }
+    .review-stars { display: flex; gap: 0.2rem; margin-bottom: 0.75rem; }
+    .star { color: var(--yellow); font-size: 1.2rem; }
+    .review-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .review-author { display: flex; align-items: center; gap: 0.75rem; }
+    .review-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--white);
+      font-size: 1rem;
+    }
+    .avatar-1 { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+    .avatar-2 { background: linear-gradient(135deg, var(--purple-dark), var(--purple)); }
+    .review-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--purple-dark); }
+    .review-source { font-size: 0.78rem; color: #999; margin-top: 0.15rem; }
+
+    /* === GOOGLE REVIEWS BUTTON === */
+    .google-reviews-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--white);
+      border: 2px solid #dadce0;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #3c4043;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .google-reviews-btn:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+      border-color: #aaa;
+    }
+    .google-g-icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+    }
+    .reviews-cta-row {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* ===== FAMILY CTA ===== */
+    .family-section { background: var(--white); padding: 5rem 1.5rem; }
+    .family-inner {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-bg) 100%);
+      border-radius: 30px;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 3px solid var(--yellow);
+    }
+    .family-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent, transparent 20px,
+        rgba(255,229,0,0.02) 20px, rgba(255,229,0,0.02) 21px
+      );
+    }
+    .family-content { position: relative; z-index: 1; }
+    .family-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
+    .family-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .family-text {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .family-verse {
+      background: rgba(255,229,0,0.12);
+      border: 1px solid rgba(255,229,0,0.3);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .family-verse p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--white);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+    .family-verse cite {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--yellow);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--light); }
+    .contact-label { background: rgba(255,229,0,0.15); color: #7a6800; }
+    .contact-title { color: var(--purple-dark); }
+    .contact-title span { color: var(--purple); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .contact-info-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--purple-dark); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .ci-1 { background: linear-gradient(135deg, var(--yellow), var(--orange)); }
+    .ci-2 { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+    .ci-3 { background: linear-gradient(135deg, var(--lime), #00aa00); }
+    .contact-item-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 0.2rem; }
+    .contact-item-value { font-size: 1rem; color: var(--purple-dark); font-weight: 600; }
+    .contact-item-value a { color: var(--purple-dark); text-decoration: none; transition: color 0.2s; }
+    .contact-item-value a:hover { color: var(--purple); }
+    .contact-form {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(139,0,255,0.1);
+      border: 1px solid rgba(139,0,255,0.08);
+    }
+    .form-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--purple-dark); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.82rem; color: #555; margin-bottom: 0.4rem; letter-spacing: 0.03em; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #e0d4f5;
+      border-radius: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--purple-dark);
+      background: var(--light);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--purple); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--purple-dark); padding: 3rem 1.5rem 1.5rem; border-top: 3px solid var(--yellow); }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,229,0,0.15);
+    }
+    .footer-logo-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .footer-logo-img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; }
+    .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--yellow); text-transform: uppercase; }
+    .footer-tagline { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+    .footer-verse { font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.6; border-left: 3px solid var(--yellow); padding-left: 1rem; }
+    .footer-verse cite { display: block; font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 700; font-size: 0.68rem; color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+    .footer-col-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); margin-bottom: 1rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.6rem; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .footer-faith-note { color: rgba(255,229,0,0.6); font-size: 0.82rem; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    /* ===== CAREERS ===== */
+    .careers { background: var(--purple-dark); padding: 5rem 1.5rem; }
+    .careers-label { background: rgba(57,255,20,0.12); color: var(--lime); }
+    .careers-title { color: var(--yellow); }
+    .careers-title span { color: var(--lime); }
+    .careers-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: center;
+    }
+    .careers-text { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .careers-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .careers-perk {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.98rem;
+    }
+    .perk-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,229,0,0.12);
+      border: 1px solid rgba(255,229,0,0.25);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .btn-apply {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--lime);
+      color: var(--purple-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 8px 30px rgba(57,255,20,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-apply:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(57,255,20,0.6);
+    }
+    .careers-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,229,0,0.2);
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .careers-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--lime), var(--yellow));
+    }
+    .careers-card-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .careers-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--yellow);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .careers-card-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .careers-card-note {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--lime);
+      font-size: 0.92rem;
+      border-left: 3px solid var(--lime);
+      padding-left: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid, .careers-inner { grid-template-columns: 1fr; }
+      .services-grid, .faith-cards { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .services-grid, .faith-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .family-inner { padding: 2.5rem 1.5rem; }
+      .fleet-item.large { grid-column: span 1; aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== STRIPE TOP ===== -->
+  <div class="stripe-bar"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="images/logo.png" alt="Rockit Trucking Logo"
+        onerror="this.style.display='none'" />
+      <span class="nav-logo-text">Rockit <span>Trucking</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#fleet">Our Fleet</a></li>
+      <li><a href="#faith">Our Faith</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-stripes"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✝ Faith · Family · Elizabethtown, KY</div>
+
+      <div class="hero-logo-wrap">
+        <img src="images/logo.png" alt="Rockit Trucking Inc Logo"
+          onerror="this.closest('.hero-logo-wrap').style.display='none'; document.getElementById('logo-fallback').style.display='flex';" />
+      </div>
+      <div class="hero-logo-placeholder" id="logo-fallback" style="display:none;">
+        <span>🚛</span>
+        <small>Add logo.png to images/</small>
+      </div>
+
+      <h1>
+        <span class="rockit">Rockit</span><br />
+        <span class="trucking">Trucking Inc.</span>
+      </h1>
+      <p class="hero-location">Elizabethtown, Ky</p>
+      <p class="hero-tagline">
+        Hauling rock, sand &amp; gravel — with excellence, integrity, and the Lord leading every mile.
+      </p>
+
+      <div class="hero-verse">
+        <p>"I can do all things through Christ who strengthens me."</p>
+        <cite>Philippians 4:13</cite>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:+12707372825" class="btn btn-outline">📞 (270) 737-2825</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRIPE ===== -->
+  <div class="stripe-bar"></div>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker-wrap">
+    <div class="ticker-content">
+      <span class="ticker-item">Rock Hauling</span>
+      <span class="ticker-item">Sand &amp; Gravel Delivery</span>
+      <span class="ticker-item">Elizabethtown, KY</span>
+      <span class="ticker-item">Family Owned</span>
+      <span class="ticker-item">Faith Driven</span>
+      <span class="ticker-item">Professional Service</span>
+      <span class="ticker-item">Honor to the Lord</span>
+      <span class="ticker-item">Peterbilt Proud</span>
+      <span class="ticker-item">Rock Hauling</span>
+      <span class="ticker-item">Sand &amp; Gravel Delivery</span>
+      <span class="ticker-item">Elizabethtown, KY</span>
+      <span class="ticker-item">Family Owned</span>
+      <span class="ticker-item">Faith Driven</span>
+      <span class="ticker-item">Professional Service</span>
+      <span class="ticker-item">Honor to the Lord</span>
+      <span class="ticker-item">Peterbilt Proud</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="section-label about-label">About Us</span>
+          <h2 class="section-title about-title">Built on <span>Faith</span>,<br />Driven by Purpose</h2>
+          <p class="about-text">Rockit Trucking Inc. is a family-owned and operated trucking company based right here in Elizabethtown, Kentucky. We were founded on the belief that a business built on God's word will stand the test of time.</p>
+          <p class="about-text">Every load we haul — every bag of rock, sand, or gravel — is done with excellence and honor to the Lord. We treat every client like family and every job like it matters, because it does.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Faith-Driven</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">KY</div>
+              <div class="stat-label">Local &amp; Proud</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">KY &amp; Beyond</div>
+              <div class="stat-label">Service Area</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="about-card">
+            <div class="about-card-icon">✝️</div>
+            <div class="about-card-title">Our Mission &amp; Heart</div>
+            <p class="about-card-verse">"Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."</p>
+            <div class="about-card-cite">— Proverbs 3:5–6</div>
+            <div class="about-deco"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <span class="section-label services-label">What We Do</span>
+      <h2 class="section-title services-title">Our <span>Services</span></h2>
+      <p class="section-sub">We specialize in hauling the materials that build communities. Whether it's a small project or a large commercial contract, we deliver on time and with care.</p>
+      <div class="services-grid">
+        <div class="service-card service-card-1">
+          <div class="service-icon-wrap">🪨</div>
+          <div class="service-title">Rock Hauling</div>
+          <p class="service-desc">From crushed limestone to large decorative boulders, we transport rock safely and efficiently to your jobsite anywhere in the region.</p>
+        </div>
+        <div class="service-card service-card-2">
+          <div class="service-icon-wrap">⏳</div>
+          <div class="service-title">Sand Delivery</div>
+          <p class="service-desc">Need sand for construction, landscaping, or fill? We deliver bulk sand loads to businesses quickly and reliably — the right material, right on time.</p>
+        </div>
+        <div class="service-card service-card-3">
+          <div class="service-icon-wrap">🏗️</div>
+          <div class="service-title">Gravel Transport</div>
+          <p class="service-desc">Pea gravel, road base, and drainage gravel — we haul it all. Trusted by contractors and businesses throughout Elizabethtown and surrounding areas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRIPE ===== -->
+  <div class="stripe-bar"></div>
+
+  <!-- ===== FLEET GALLERY ===== -->
+  <section class="fleet" id="fleet">
+    <div class="container">
+      <span class="section-label fleet-label">Our Fleet</span>
+      <h2 class="section-title fleet-title">The <span>Rockit</span> Fleet</h2>
+      <p class="section-sub fleet-subtitle">These aren't just trucks — they're rolling testaments to pride, craftsmanship, and the Rockit spirit. Every rig is maintained to the highest standard.</p>
+      <div class="fleet-grid">
+
+        <div class="fleet-item large">
+          <img src="images/truck1.jpg" alt="Rockit Trucking RC-107 – Blue & Orange Peterbilt dump truck"
+            onerror="this.style.display='none';this.parentNode.querySelector('.fleet-placeholder').style.display='flex';" />
+          <div class="fleet-placeholder" style="display:none;">
+            <span class="fleet-placeholder-icon">🚛</span>
+            <span class="fleet-placeholder-text">Save as images/truck1.jpg</span>
+          </div>
+          <div class="fleet-item-overlay"><span class="fleet-item-label">RC-107 · The Blue Bomber</span></div>
+        </div>
+
+        <div class="fleet-item">
+          <img src="images/truck2.jpg" alt="Rockit Trucking MT-1128 – Lime Green Peterbilt"
+            onerror="this.style.display='none';this.parentNode.querySelector('.fleet-placeholder').style.display='flex';" />
+          <div class="fleet-placeholder" style="display:none;">
+            <span class="fleet-placeholder-icon">🚛</span>
+            <span class="fleet-placeholder-text">Save as images/truck2.jpg</span>
+          </div>
+          <div class="fleet-item-overlay"><span class="fleet-item-label">MT-1128 · The Green Machine</span></div>
+        </div>
+
+        <div class="fleet-item">
+          <img src="images/truck3.jpg" alt="Rockit Trucking fleet lineup"
+            onerror="this.style.display='none';this.parentNode.querySelector('.fleet-placeholder').style.display='flex';" />
+          <div class="fleet-placeholder" style="display:none;">
+            <span class="fleet-placeholder-icon">🚛</span>
+            <span class="fleet-placeholder-text">Save as images/truck3.jpg</span>
+          </div>
+          <div class="fleet-item-overlay"><span class="fleet-item-label">The Full Fleet</span></div>
+        </div>
+
+        <div class="fleet-item large">
+          <img src="images/truck4.jpg" alt="Rockit Trucking neon fleet in autumn"
+            onerror="this.style.display='none';this.parentNode.querySelector('.fleet-placeholder').style.display='flex';" />
+          <div class="fleet-placeholder" style="display:none;">
+            <span class="fleet-placeholder-icon">🚛</span>
+            <span class="fleet-placeholder-text">Save as images/truck4.jpg</span>
+          </div>
+          <div class="fleet-item-overlay"><span class="fleet-item-label">Rockit's Finest · Elizabethtown, KY</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRIPE ===== -->
+  <div class="stripe-bar"></div>
+
+  <!-- ===== FAITH SECTION ===== -->
+  <section class="faith" id="faith">
+    <div class="container">
+      <span class="section-label faith-label">Our Foundation</span>
+      <h2 class="section-title faith-title">Jesus Is at the <span>Center</span></h2>
+      <p class="section-sub faith-subtitle">Our faith isn't just a part of who we are — it IS who we are. We run every mile, every route, and every relationship with Christ leading the way.</p>
+      <div class="faith-cards">
+        <div class="faith-card">
+          <div class="faith-card-icon">🙏</div>
+          <div class="faith-card-title">Prayer on Every Haul</div>
+          <p class="faith-card-text">We ask for God's protection and guidance on every load, every driver, and every destination. His hand guides us on the road.</p>
+        </div>
+        <div class="faith-card">
+          <div class="faith-card-icon">❤️</div>
+          <div class="faith-card-title">Serving with Love</div>
+          <p class="faith-card-text">We treat every customer the way we want to be treated — with kindness, honesty, and genuine care. That's the Golden Rule in action.</p>
+        </div>
+        <div class="faith-card">
+          <div class="faith-card-icon">✨</div>
+          <div class="faith-card-title">Excellence as Worship</div>
+          <p class="faith-card-text">We believe doing your best work IS worship. Every delivery, every interaction is an opportunity to honor the Lord through our actions.</p>
+        </div>
+      </div>
+      <div class="faith-verse-block">
+        <p>"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters."</p>
+        <cite>— Colossians 3:23</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VERSE BANNER ===== -->
+  <div class="verse-banner">
+    <p>"But those who hope in the LORD will renew their strength. They will soar on wings like eagles; they will run and not grow weary."</p>
+    <cite>— Isaiah 40:31</cite>
+  </div>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+      <span class="section-label testimonials-label">Reviews</span>
+      <h2 class="section-title testimonials-title">What People Are <span>Saying</span></h2>
+      <p class="section-sub">We're grateful for every kind word. These are real reviews from real people who experienced the Rockit Trucking difference.</p>
+
+      <div class="testimonials-grid">
+        <div class="review-card">
+          <div class="review-card-bar"></div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"Have a blessed and SAFE ride!"</p>
+          <div class="review-author">
+            <div class="review-avatar avatar-1">MA</div>
+            <div>
+              <div class="review-name">Matthew Antle</div>
+              <div class="review-source">Google Review</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-bar"></div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"All done with excellence and honor to the Lord."</p>
+          <div class="review-author">
+            <div class="review-avatar avatar-2">RB</div>
+            <div>
+              <div class="review-name">Richard Brady</div>
+              <div class="review-source">Google Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Reviews Button -->
+      <div class="reviews-cta-row">
+        <a
+          href="https://www.google.com/search?q=Rockit+Trucking+Inc+Elizabethtown+KY+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="google-reviews-btn"
+        >
+          <!-- Google G logo SVG -->
+          <svg class="google-g-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            <path fill="none" d="M0 0h48v48H0z"/>
+          </svg>
+          See all reviews on Google
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FAMILY CTA ===== -->
+  <section class="family-section">
+    <div class="family-inner">
+      <div class="family-content">
+        <div class="family-emoji">👨‍👩‍👧‍👦</div>
+        <h2 class="family-title">Family First. Faith Always.</h2>
+        <p class="family-text">Rockit Trucking isn't just a business — it's a family. We believe in building lasting relationships with our clients, our community, and our God. When you call Rockit, you're calling family.</p>
+        <div class="family-verse">
+          <p>"As for me and my house, we will serve the LORD."</p>
+          <cite>— Joshua 24:15</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <span class="section-label contact-label">Contact Us</span>
+      <h2 class="section-title contact-title">Come See Us &amp; Get Your <span>Free Quote</span></h2>
+      <p class="section-sub">We believe great business starts with a handshake. Stop by our location in Elizabethtown or give us a call — our team is ready to sit down with you, discuss your project, and put together a free, no-obligation quote in person. We'd love to meet you!</p>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-title">Reach Us Directly</div>
+          <div class="contact-item">
+            <div class="contact-icon ci-1">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value"><a href="tel:+12707372825">(270) 737-2825</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon ci-2">📍</div>
+            <div>
+              <div class="contact-item-label">Address</div>
+              <div class="contact-item-value">800 S Park Rd,<br />Elizabethtown, KY 42701</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon ci-3">🕗</div>
+            <div>
+              <div class="contact-item-label">Office Hours</div>
+              <div class="contact-item-value">Mon – Fri: 8:00 AM – 5:00 PM<br /><span style="font-size:0.88rem;color:#888;">Saturday &amp; Sunday: Closed</span></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon ci-3">🚛</div>
+            <div>
+              <div class="contact-item-label">Service Area</div>
+              <div class="contact-item-value">Elizabethtown &amp; Surrounding Kentucky Areas</div>
+            </div>
+          </div>
+          <br />
+          <a href="tel:+12707372825" class="btn btn-primary">📞 Call Now</a>
+        </div>
+
+        <div class="contact-form" style="position:relative;">
+          <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--lime),var(--yellow),var(--pink),var(--purple));border-radius:20px 20px 0 0;"></div>
+          <div style="text-align:center;padding:1rem 0 0.5rem;">
+            <div style="font-size:3.5rem;margin-bottom:0.75rem;">🤝</div>
+            <div class="form-title" style="font-size:1.5rem;">Your Free Quote Awaits</div>
+          </div>
+          <p style="text-align:center;color:#555;font-size:0.98rem;line-height:1.7;margin-bottom:1.8rem;">
+            We don't do quotes online — because we believe <strong style="color:var(--purple);">your project deserves a real conversation.</strong> Come visit us in Elizabethtown and let's talk about exactly what you need. No pressure, no hassle — just honest, expert advice from people who care.
+          </p>
+          <div style="background:var(--light);border-radius:14px;padding:1.4rem 1.6rem;margin-bottom:1.5rem;border:1px solid rgba(139,0,255,0.1);">
+            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.9rem;">
+              <span style="font-size:1.4rem;">📍</span>
+              <div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.15rem;">Visit Us At</div>
+                <div style="font-weight:600;color:var(--purple-dark);font-size:0.98rem;">800 S Park Rd, Elizabethtown, KY 42701</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.9rem;">
+              <span style="font-size:1.4rem;">📞</span>
+              <div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.15rem;">Call Ahead</div>
+                <a href="tel:+12707372825" style="font-weight:600;color:var(--purple-dark);font-size:0.98rem;text-decoration:none;">(270) 737-2825</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <span style="font-size:1.4rem;">🕗</span>
+              <div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.15rem;">Office Hours</div>
+                <div style="font-weight:600;color:var(--purple-dark);font-size:0.98rem;">Mon – Fri &nbsp;|&nbsp; 8:00 AM – 5:00 PM</div>
+              </div>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=800+S+Park+Rd+Elizabethtown+KY+42701" target="_blank" rel="noopener noreferrer"
+            style="display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;padding:1rem;background:linear-gradient(90deg,var(--purple),var(--pink));color:var(--white);border:none;border-radius:12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;transition:opacity 0.2s,transform 0.2s;text-transform:uppercase;letter-spacing:0.06em;"
+            onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+            📍 Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAREERS ===== -->
+  <div class="stripe-bar"></div>
+  <section class="careers" id="careers">
+    <div class="container">
+      <span class="section-label careers-label">Now Hiring</span>
+      <h2 class="section-title careers-title">Drive with <span>Rockit</span></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.65);">Looking for more than just a job? Join a team where faith, family, and hard work are celebrated every single day.</p>
+      <div class="careers-inner">
+        <div>
+          <p class="careers-text">
+            At Rockit Trucking, our drivers aren't just employees — they're part of the family. We're looking for dedicated, professional, and faith-driven individuals who take pride in their work and want to be part of something bigger than a paycheck.
+          </p>
+          <div class="careers-perks">
+            <div class="careers-perk"><div class="perk-icon">✝️</div> Faith-centered, family-oriented workplace</div>
+            <div class="careers-perk"><div class="perk-icon">💼</div> Professional, respectful work environment</div>
+            <div class="careers-perk"><div class="perk-icon">🚛</div> Well-maintained, top-of-the-line equipment</div>
+            <div class="careers-perk"><div class="perk-icon">📍</div> Based in Elizabethtown, KY</div>
+            <div class="careers-perk"><div class="perk-icon">🤝</div> A team that has your back</div>
+          </div>
+          <a href="https://cdlsuite.com/application.php?user_id=675353&theme=default"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn-apply">
+            🚀 Apply Here!
+          </a>
+        </div>
+        <div class="careers-card">
+          <div class="careers-card-icon">🏆</div>
+          <div class="careers-card-title">Ready to Join the Team?</div>
+          <p class="careers-card-text">
+            Our online application takes just a few minutes. Click the button and take the first step toward a career with one of Kentucky's most respected trucking companies. We review every application personally.
+          </p>
+          <div class="careers-card-note">
+            "Whatever you do, work at it with all your heart, as working for the Lord."<br />
+            <strong style="font-style:normal;font-family:'Montserrat',sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;">— Colossians 3:23</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRIPE ===== -->
+  <div class="stripe-bar"></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-row">
+          <img src="images/logo.png" alt="Rockit Trucking Logo" class="footer-logo-img"
+            onerror="this.style.display='none'" />
+          <div class="footer-brand-name">Rockit Trucking Inc.</div>
+        </div>
+        <p class="footer-tagline">Serving Elizabethtown, KY and surrounding areas with rock, sand, and gravel hauling — all done with faith, family, and excellence.</p>
+        <div class="footer-verse">
+          "Have a blessed and SAFE ride!"
+          <cite>— Matthew Antle, 5-Star Review</cite>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#faith">Our Faith</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+12707372825">(270) 737-2825</a></li>
+          <li>800 S Park Rd</li>
+          <li>Elizabethtown, KY 42701</li>
+        </ul>
+        <br />
+        <div class="footer-col-title">Hours</div>
+        <ul class="footer-links">
+          <li>Mon – Fri: 8:00 AM – 5:00 PM</li>
+          <li>Sat – Sun: Closed</li>
+          <li>Serving Kentucky &amp; Beyond</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Rockit Trucking Inc. · Elizabethtown, KY · All Rights Reserved.</span>
+      <span class="footer-faith-note">✝ "All done with excellence and honor to the Lord."</span>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.textContent = '✅ Message Sent! We\'ll be in touch.';
+      btn.style.background = 'linear-gradient(90deg, #22c55e, #16a34a)';
+      btn.disabled = true;
+    }
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow =
+        window.scrollY > 10 ? '0 4px 25px rgba(0,0,0,0.6)' : '0 2px 20px rgba(0,0,0,0.5)';
+    });
+  </script>
+</body>
+</html>
